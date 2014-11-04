@@ -1,0 +1,670 @@
+<html ng-app="orgCom">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Unify | Welcome...</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="http://htmlstream.com/preview/unify-v1.4/favicon.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet"
+          href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet"
+          href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/flexslider/flexslider.css">
+    <link rel="stylesheet"
+          href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/layer_slider/css/layerslider.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/pages/portfolio-v2.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/themes/default.css"
+          id="style_color">
+
+    <!-- CSS Customization -->
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/custom.css">
+    <link rel="stylesheet" href="./index2_files/skin.css" type="text/css">
+    <link rel="stylesheet" href="./css/hover.css" type="text/css">
+
+
+    <style>
+
+        .header {
+
+            height: 150px;
+
+        }
+
+        .header_img {
+            width: 45%;
+
+        }
+
+        .da-img {
+
+            width: 100%;
+        }
+
+        #effect-2 .no-img h4 {
+
+            color: black;
+        }
+
+        .navbar-header {
+
+            margin-left: 0;
+        }
+
+        .bt {
+            background: rgba(0, 0, 0, 0.7);
+
+        }
+
+        .carousel-caption {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 7px 15px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-caption p {
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+
+    </style>
+
+
+</head>
+<body ng-controller="orgCom">
+<div class="header">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <!-- Topbar Navigation -->
+            <ul class="loginbar pull-right">
+                <li>
+                    <i class="fa fa-globe"></i>
+                    <a>語言</a>
+                    <ul class="lenguages">
+                        <li class="active">
+                            <a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">繁體 <i
+                                    class="fa fa-check"></i></a>
+                        </li>
+                        <li><a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">簡體</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- End Topbar Navigation -->
+        </div>
+    </div>
+    <!-- End Topbar -->
+
+    <!-- Navbar -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img id="logo-header"
+                         src="http://114.112.229.14/OrgCom/group1/org1/images/{{org[0].LogoImg}}" alt="Logo"
+                         class="header_img">
+
+
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Home -->
+
+
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                            有關我們
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="aboutus.html">本會介紹</a></li>
+
+                            <li><a href="ourorg.html">本會架構</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="services.html">服務</a></li>
+                    <li><a href="./pofo.html">最新資訊</a></li>
+                    <li><a href="download.html">下載區</a></li>
+
+
+                    <li><a href="#">精彩相片</a></li>
+                    <li><a href="links.html">友好鏈結</a></li>
+
+                </ul>
+            </div>
+            <!--/navbar-collapse-->
+        </div>
+    </div>
+    <!-- End Navbar -->
+</div>
+
+
+<div class="layer_slider hidden-xs">
+    <div id="layerslider-container-fw">
+        <div id="layerslider" style="width: 100%; height: 500px; margin: 0px auto; visibility: visible;"
+             class="ls-container ls-fullwidth">
+            <div class="ls-webkit-hack"></div>
+            <!--First Slide-->
+            <div class="ls-inner" style="background-color: transparent; width: 1220px; height: 500px;">
+                <div ng-repeat="img in org[0].SlideImg">
+
+
+                    <div class="ls-layer "
+                         style="width: 1220px; height: 500px; visibility: visible; display: none; left: 0px; right: auto; top: 0px; bottom: auto;">
+                        <img src="http://114.112.229.14/OrgCom/group1/org1/images/{{img.Img}}" class="ls-bg"
+                             alt="Slide background"
+                             style="padding: 0px; border-width: 0px; width: 1600px; height: 1200px; margin-left: -800px; margin-top: -600px;">
+
+
+                        <a class="btn-u bt ls-s1" href="#"
+                           style="padding: 9px 20px; font-size: 60px; top: 380px; left: 170px; width: auto; height: auto; border-width: 0px; opacity: 1; -webkit-transform: rotate(0deg) scale(1, 1); margin-left: 0px; margin-top: -225px; display: block; visibility: visible;">
+                            {{img.Caption}}
+
+                        </a>
+
+
+                    </div>
+                </div>
+
+                <div class="ls-circle-timer" style="display: block;">
+                    <div class="ls-ct-left">
+                        <div class="ls-ct-rotate" style="-webkit-transform: rotate(0deg);">
+                            <div class="ls-ct-hider">
+                                <div class="ls-ct-half"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ls-ct-right">
+                        <div class="ls-ct-rotate" style="-webkit-transform: rotate(177.48deg);">
+                            <div class="ls-ct-hider">
+                                <div class="ls-ct-half"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ls-ct-center"></div>
+                </div>
+            </div>
+            <!--End First Slide-->
+
+
+            <!--End Third Slide-->
+            <div class="ls-loading-container" style="z-index: -1; display: none;">
+                <div class="ls-loading-indicator"></div>
+            </div>
+            <a class="ls-nav-prev" href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#"
+               style="visibility: visible; display: block;"></a><a class="ls-nav-next"
+                                                                   href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#"
+                                                                   style="visibility: visible; display: block;"></a>
+
+            <div class="ls-bottom-nav-wrapper" style="visibility: visible;"><a class="ls-nav-start ls-nav-start-active"
+                                                                               href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#"></a><span
+                    class="ls-bottom-slidebuttons"><a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#"
+                                                      class=""></a><a
+                    href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#" class="ls-nav-active"></a><a
+                    href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#" class=""></a><div
+                    class="ls-thumbnail-hover" style="width: 100px; height: 60px;">
+                <div class="ls-thumbnail-hover-inner" style="visibility: hidden; display: block;">
+                    <div class="ls-thumbnail-hover-bg"></div>
+                    <div class="ls-thumbnail-hover-img" style="width: 100px; height: 60px;"><img style="height: 60px;">
+                    </div>
+                    <span></span></div>
+            </div></span><a class="ls-nav-stop" href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#"></a>
+            </div>
+            <div class="ls-shadow"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container content">
+
+    <div class="headline"><h2>最新資訊</h2></div>
+
+    <div class="sorting-block">
+
+        <ul class="row sorting-grid">
+            <li class="col-md-3 col-sm-6 col-xs-12 mix category_1 mix_all" data-cat="1"
+                style="display: inline-block; opacity: 1;">
+                <a href="./acvities.html">
+                    <img class="img-responsive" src="./images/event1.jpg" alt="">
+                        <span class="sorting-cover">
+                            <span>勞苦功高 分享成果-2013建造業薪酬發佈會</span>
+                            <p>16 October, 2013</p>
+                        </span>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-6 col-xs-12 mix category_3 mix_all" data-cat="3"
+                style="display: inline-block; opacity: 1;">
+                <a href="./pro_files/pro.html">
+                    <img class="img-responsive" src="./images/event1.jpg" alt="">
+                        <span class="sorting-cover">
+                            <span>起重吊運意外頻生 勞資雙方監督須認真</span>
+                            <p>27 February, 2014</p>
+                        </span>
+                </a>
+            </li>
+            <li class="col-md-3 col-sm-6 col-xs-12 mix category_2 mix_all" data-cat="2"
+                style="display: inline-block; opacity: 1;">
+                <a href="./pro_files/pro.html">
+                    <img class="img-responsive" src="./images/event1.jpg" alt="">
+                        <span class="sorting-cover">
+                            <span>起重吊運意外頻生 勞資雙方監督須認真</span>
+                            <p>16 October, 2013</p>
+                        </span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row margin-bottom-20">
+        <!-- Welcome Block -->
+        <div class="col-md-8 md-margin-bottom-40">
+            <div class="headline"><h2>我們的使命</h2></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="img-responsive margin-bottom-20" src="./images/our.jpg" alt="">
+                </div>
+                <div class="col-sm-8">
+
+                    <ul class="list-unstyled margin-bottom-20">
+
+
+
+
+                        <li ng-repeat="purposeItem in org[0].Purpose"><i class="fa fa-check color-green"></i> {{purposeItem.Title}}
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <!--/col-md-8-->
+
+        <!-- Latest Shots -->
+        <div class="col-md-4 md-margin-bottom-20">
+            <div class="headline"><h2>友情推薦</h2></div>
+            <div id="myCarousel" class="carousel slide carousel-v1">
+                <div class="carousel-inner">
+                    <div class="item">
+                        <img src="./index2_files/5(1).jpg" alt="">
+
+                        <div class="carousel-caption">
+                            <p>最新優惠</p>
+                        </div>
+                    </div>
+                    <div class="item active">
+                        <img src="./index2_files/4.jpg" alt="">
+
+                        <div class="carousel-caption">
+                            <p>最新優惠</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="./index2_files/3.jpg" alt="">
+
+                        <div class="carousel-caption">
+                            <p>最新優惠</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-arrow">
+                    <a class="left carousel-control"
+                       href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#myCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right carousel-control"
+                       href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#myCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--/col-md-4-->
+    </div>
+    <!--/row-->
+    <!-- End Info Blokcs -->
+
+    <!-- Our Clients -->
+    <div id="clients-flexslider" class="flexslider home clients">
+        <div class="headline"><h2>我們的分會</h2></div>
+
+
+        <ul class="list-inline our-clients" id="effect-2">
+            <li>
+                <figure>
+
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_14.png" alt="">
+
+                    <div class="img-hover">
+                        <a href="about_ns.html">
+                            <h4>坭水</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_15.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>木匠</h4>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_16.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>油漆</h4>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_17.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>搭棚</h4>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_18.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>喉管</h4>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_19.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>水泥</h4>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_20.png" alt="">
+
+                    <div class="img-hover">
+                        <a href="about_ccca.html">
+
+                            <h4>機協</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/Gif5/images/hkciegu-01_21.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>承僱</h4>
+                    </div>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/Gif5/images/hkciegu-01_21.jpg" alt="">
+
+                    <div class="img-hover">
+                        <h4>文職</h4>
+                    </div>
+                </figure>
+            </li>
+
+            <li>
+                <figure>
+                    <img src="http://www.hkciegu.org.hk/subunit/hkciegu-01_22s.png" alt="">
+
+                    <div class="img-hover">
+                        <h4>通架</h4>
+                    </div>
+                </figure>
+            </li>
+
+        </ul>
+
+        <ul class="list-inline our-clients" id="effect-3">
+
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>模板</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>模板</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>平水</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>扎鐵</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>打石</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>碼木</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>模板</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>剷漆</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>雕刻</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>木箱</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>員總</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>裝修</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>駐協</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+            <li class="bg-green">
+                <figure>
+
+
+                    <div class="bg-green">
+                        <a href="about_ns.html">
+                            <h4>天花</h4>
+                        </a>
+                    </div>
+                </figure>
+            </li>
+        </ul>
+
+    </div>
+    <!--/flexslider-->
+    <!-- End Our Clients -->
+</div>
+
+
+<script type="text/javascript" async="" src="./index2_files/ga.js"></script>
+<script type="text/javascript" src="./index2_files/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./index2_files/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="./index2_files/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="./index2_files/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="./index2_files/jquery.bxslider.js"></script>
+<!-- Layer Slider -->
+<script src="./index2_files/jquery-easing-1.3.js" type="text/javascript"></script>
+<script src="./index2_files/jquery-transit-modified.js" type="text/javascript"></script>
+<script src="./index2_files/layerslider.transitions.js" type="text/javascript"></script>
+<script src="./index2_files/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+<!-- End Layer Slider -->
+<!-- JS Page Level -->
+<script type="text/javascript" src="./index2_files/app.js"></script>
+<script type="text/javascript" src="./index2_files/index.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        App.initSliders();
+        App.initBxSlider();
+        Index.initLayerSlider();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/layer_slider/assets/js/html5.js"></script>
+
+</body>
+</html>
