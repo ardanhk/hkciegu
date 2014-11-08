@@ -1,6 +1,7 @@
 var express = require('express'),
 bodyParser = require('body-parser'),
 path = require('path'),
+session = require('express-session'),
 passport = require('passport'),
 LocalStrategy = require('passport-local');
 
@@ -8,6 +9,7 @@ var app = express();
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(session({secret: 'keyboard cat', cookie: { maxAge: 100000 }}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -30,28 +32,20 @@ passport.deserializeUser(function(user, done) {
   	done(null, user);
 });
 
-app.post('/login', function(req, res, next) {
-	passport.authenticate('local', function (error, user, info) {
-		if (error) {
-			console.log(error);
-			return res.redirect('/login.html');
-		}
-		if (!user) {
-			console.log("User is null");
-			return res.redirect('/login.html');
-		}
-		return res.redirect('/admin');
-	})(req, res, next);
+app.get('/login', function(req, res, next) {
+	res.sendfile(__dirname + '/public/login.html');
 });
 
+app.post('/login', passport.authenticate('local', {
+	successRedirect:'/admin',
+	failureRedirect:'/login'
+}));
+
 app.all('/admin/*', function(req, res, next) {
-	if (req.isAuthenticated()) {
-		console.log('next()');
-		next();
-	} else {
-		console.log('redirect to login');
-		res.redirect('/login.html');
+	if (!req.user) {
+		return res.redirect('/login');
 	}
+	next();
 });
 
 app.use('/admin', express.static(path.join(__dirname, 'admin')));

@@ -16,6 +16,7 @@
     "mongoose": "*",
     "gridfs-stream": "*",
     "jpush-sdk": "*",
+    "express-session": "*",
     "passport": "*",
     "passport-local": "*"
   }
