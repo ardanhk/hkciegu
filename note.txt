@@ -1,0 +1,35 @@
+CMS
+	login.html
+	index.html (home page)
+	
+	Menu -> 
+	
+	Activity.html (List) <=> Activity Detail > 
+		- Create
+		- Edit
+		- Mark Delete
+	
+		DB:
+			isApply: YES -> show button
+			Title:
+			CreateAt
+			UpdatedAt
+			Desc
+			Photo:limit 5
+	
+	{
+		Title:activiy1
+		
+		Photos :[  , , , ,]
+	}
+		
+	Application Item (List) -> Detail
+		- Create
+		- Edit
+		
+	
+	Frontend
+	
+	-Activity update
+		- Application
+	Gallary
