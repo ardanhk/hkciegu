@@ -5,6 +5,7 @@ session = require('express-session'),
 passport = require('passport'),
 LocalStrategy = require('passport-local');
 
+// Express Configuration
 var app = express();
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
@@ -14,7 +15,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy( function(username, password, done) {
-	console.log("Username: " + username + " Password: " + password)
+	console.log("Username: " + username + " Password: " + password);
+
+	// To-do the login logic
+
+
 	if (username == "test" && password == "test") {
 		done(null, {username: "test"});
 	} else {
