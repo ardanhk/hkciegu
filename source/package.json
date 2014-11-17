@@ -18,6 +18,9 @@
     "jpush-sdk": "*",
     "express-session": "*",
     "passport": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "bcrypt": "*",
+    "jade": "*",
+    "connect-flash": "*"
   }
 }

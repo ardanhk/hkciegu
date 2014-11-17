@@ -3,28 +3,36 @@ bodyParser = require('body-parser'),
 path = require('path'),
 session = require('express-session'),
 passport = require('passport'),
-LocalStrategy = require('passport-local');
+LocalStrategy = require('passport-local'),
+mongoose = require('mongoose'),
+Admin = require('./models/Admin'),
+flash = require('connect-flash');
 
 // Express Configuration
 var app = express();
 app.set('port', process.env.PORT || 8080);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(session({secret: 'keyboard cat', cookie: { maxAge: 100000 }}));
+app.use(session({secret: 'vantis', cookie: { maxAge: 100000 }}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
-passport.use(new LocalStrategy( function(username, password, done) {
-	console.log("Username: " + username + " Password: " + password);
-
+passport.use(new LocalStrategy( function(candidateName, password, done) {
 	// To-do the login logic
-
-
-	if (username == "test" && password == "test") {
-		done(null, {username: "test"});
-	} else {
-		return done("{message: 'Incorrect username.'}");
-	}
+	Admin.findOne({username: candidateName}, function(err, admin) {
+		if (err) done(err);
+		if (admin) {
+			admin.comparePassword(password, function(err, isMatch) {
+				if (err) done(err);
+				if (isMatch) done(null, admin);
+				else done(null, false, 'Username or password not match.');
+			});
+		} else done(null, false, 'Username or password not match.');
+	});
 }));
 
 passport.serializeUser(function(user, done) {
@@ -38,13 +46,10 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/login', function(req, res, next) {
-	res.sendfile(__dirname + '/public/login.html');
+	res.render('login');
 });
 
-app.post('/login', passport.authenticate('local', {
-	successRedirect:'/admin',
-	failureRedirect:'/login'
-}));
+app.post('/login', passport.authenticate('local', { successRedirect: '/admin', failureRedirect: '/login', failureFlash: true }));
 
 app.all('/admin/*', function(req, res, next) {
 	if (!req.user) {
