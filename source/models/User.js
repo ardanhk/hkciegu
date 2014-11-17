@@ -3,15 +3,7 @@ var mongoose = require('mongoose'),
 	bcrypt = require('bcrypt'), // Blowfish key cipher
 	SALT_WORK_FACTOR = 10;
 
-// Mongoose Configuration
-mongoose.connect('mongodb://localhost/test');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback() {
-	console.log("Connection Established.");
-});
-
-var AdminSchema = new Schema({
+var User = new Schema({
 	username: {type: String, required: true, index: {unique: true}},
 	password: {type: String, required: true},
 	accessToken: String,
@@ -19,25 +11,25 @@ var AdminSchema = new Schema({
 });
 
 // Hash the password
-AdminSchema.pre('save', function (next) {
-	var admin = this;
-	if (!admin.isModified('password'))
+User.pre('save', function (next) {
+	var user = this;
+	if (!user.isModified('password'))
 		return next();
 
 	bcrypt.genSalt(SALT_WORK_FACTOR, function(error, salt) {
 		if (error)
 			return next(error);
 
-		bcrypt.hash(admin.password, salt, function(error, hash) {
+		bcrypt.hash(user.password, salt, function(error, hash) {
 			if (error)
 				return next(error);
-			admin.password = hash;
+			user.password = hash;
 			next();
 		});
 	});
 });
 
-AdminSchema.methods.comparePassword = function(candidatePassword, callback) {
+User.methods.comparePassword = function(candidatePassword, callback) {
 	bcrypt.compare(candidatePassword, this.password, function (error, isMatch) {
 		if (error)
 			return callback(error);
@@ -45,4 +37,4 @@ AdminSchema.methods.comparePassword = function(candidatePassword, callback) {
 	});
 }
 
-module.exports = mongoose.model("Admin", AdminSchema);
+module.exports = mongoose.model('User', User);

@@ -4,9 +4,17 @@ path = require('path'),
 session = require('express-session'),
 passport = require('passport'),
 LocalStrategy = require('passport-local'),
+flash = require('connect-flash'),
 mongoose = require('mongoose'),
-Admin = require('./models/Admin'),
-flash = require('connect-flash');
+User = require('./models/User');
+
+// Mongoose Configuration
+mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback() {
+	console.log("Connection Established.");
+});
 
 // Express Configuration
 var app = express();
@@ -23,12 +31,12 @@ app.use(flash());
 
 passport.use(new LocalStrategy( function(candidateName, password, done) {
 	// To-do the login logic
-	Admin.findOne({username: candidateName}, function(err, admin) {
+	User.findOne({username: candidateName}, function(err, user) {
 		if (err) done(err);
-		if (admin) {
-			admin.comparePassword(password, function(err, isMatch) {
+		if (user) {
+			user.comparePassword(password, function(err, isMatch) {
 				if (err) done(err);
-				if (isMatch) done(null, admin);
+				if (isMatch) done(null, user);
 				else done(null, false, 'Username or password not match.');
 			});
 		} else done(null, false, 'Username or password not match.');
@@ -37,16 +45,23 @@ passport.use(new LocalStrategy( function(candidateName, password, done) {
 
 passport.serializeUser(function(user, done) {
 	console.log("Serialize User: " + user);
-  	done(null, user);
+  	done(null, user.id);
 });
 
-passport.deserializeUser(function(user, done) {
-	console.log("Deserialize User: " + user);
-  	done(null, user);
+passport.deserializeUser(function(id, done) {
+	console.log("Deserialize User: " + id);
+	User.findById(id, function(err, user) {
+		done(err, user);
+	});
 });
 
 app.get('/login', function(req, res, next) {
 	res.render('login');
+});
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 app.post('/login', passport.authenticate('local', { successRedirect: '/admin', failureRedirect: '/login', failureFlash: true }));
