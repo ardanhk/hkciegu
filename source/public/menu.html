@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://htmlstream.com/preview/unify-v1.4/page_home1.html -->
+<html ng-app="orgCom">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet"
+          href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet"
+          href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/flexslider/flexslider.css">
+    <link rel="stylesheet"
+          href="http://htmlstream.com/preview/unify-v1.4/assets/plugins/layer_slider/css/layerslider.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/pages/portfolio-v2.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/themes/default.css"
+          id="style_color">
+    <style>
+        .header_img {
+            width: 40%;
+
+        }
+
+        .da-img {
+
+            width: 100%;
+        }
+
+        #effect-2 .no-img h4 {
+
+            color: black;
+        }
+
+        #effect-2 img {
+
+            width: 100%;
+        }
+
+        #effect-2 {
+
+            text-align: center;
+        }
+
+        #effect-2 ul {
+            margin-left: 30px;
+
+        }
+
+        #effect-3 {
+
+            text-align: center;
+        }
+
+        #effect-3 li .bg-green {
+            padding: 10px;
+
+            background: forestgreen;
+
+        }
+
+        #effect-3 h4 {
+
+            color: white;
+
+        }
+
+        .navbar-header {
+            margin-top: 10;
+            margin-left: 0;
+        }
+
+        .bt {
+            background: rgba(0, 0, 0, 0.7);
+
+        }
+
+        .carousel-caption {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 7px 15px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-caption p {
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+
+        .header{
+            margin-top: 10;
+
+        }
+		
+	.fontSizeControl p {
+		font-size: 10px;
+		font-weight: bold;
+		margin: 18px;
+	}
+	.fontSizeControl ul {
+		float: left;
+		border-radius: 0px;
+		padding: 7px 11px;
+	}
+	.fontSizeControl li {
+		float: left;
+		background-color: rgb(200,200,200);
+		padding: 5px 5px;
+		margin: 5px 2px 5px 0px;
+		color: black;
+		list-style: none;
+	}
+	#tcfontSize.fontSizeControl li:hover, li:hover a {
+		background-color: rgb(6,179,6) !important;
+		color:rgb(6,179,6);
+	}
+	#tcfontSize.fontSizeControl li a {
+		text-decoration: none;
+		color: white;
+		font-size: 10px;
+		text-shadow: 1px 0px 3px rgb(157, 157, 157);
+	}
+	.fontSizeControl li:nth-child(1) { border-radius: 4px 0px 0px 4px; margin-left: 1px;}
+	.fontSizeControl li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
+	.fontSizeControl .active {
+		background-color: rgb(6,179,6);
+	}
+	
+	.fontSmall{
+		font-size:14px !important;
+	}
+	
+	.fontNormal{
+		font-size:16px !important;
+	}
+	
+	.fontMiddle{
+		font-size:18px !important;
+	}
+	
+	.fontLarge{
+		font-size:20px !important;
+	}
+	
+	#ddm li:hover, li:hover a{
+		background-color:white !important;
+	}
+    </style>
+	
+
+</head>
+
+<body ng-controller="orgCom">
+<!--=== Style Switcher ===-->
+
+
+<!--/style-switcher-->
+<!--=== End Style Switcher ===-->
+
+<!--=== Header ===-->
+<div class="header">
+    <!-- Topbar -->
+
+    <!-- End Topbar -->
+
+	
+    <div class="topbar">
+
+	
+        <div class="container">
+            <!-- Topbar Navigation -->
+
+			<section class="fontSizeControl pull-right" id="tcfontSize">
+				<ul ng-init="tab = 2">
+					<li ng-class="{active:tab===1}"> 
+						<a href ng-click="tab = 1" onclick="changeFontSize('fontSmall');">小</a>	
+					</li>
+					<li ng-class="{active:tab===2}"> 
+						<a href ng-click="tab = 2" onclick="changeFontSize('fontNormal');">正常</a> 
+					</li>
+					<li ng-class="{active:tab===3}"> 
+						<a href ng-click="tab = 3" onclick="changeFontSize('fontMiddle');">中</a> 
+					</li>
+					<li ng-class="{active:tab===4}"> 
+						<a href ng-click="tab = 4" onclick="changeFontSize('fontLarge');">大</a> 
+					</li>
+				</ul>	
+
+			</section>
+
+            <ul class="loginbar pull-right">
+                <li>
+                    <i class="fa fa-globe"></i>
+                    <a>語言</a>
+                    <ul class="lenguages">
+                        <li class="active">
+                            <a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">繁體 <i
+                                    class="fa fa-check"></i></a>
+                        </li>
+                    </ul>
+					
+                </li>
+
+            </ul>
+            <!-- End Topbar Navigation -->
+        </div>
+		
+    </div>
+    <!-- Navbar -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img id="logo-header"
+                         src="http://114.112.229.14/OrgCom/group1/org1/images/{{org[0].LogoImg}}" alt="Logo"
+                         class="header_img">
+
+
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Home -->
+                    <li><a href="index.html">主頁</a></li>
+
+
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                            有關我們
+                        </a>
+                        <ul class="dropdown-menu" id="ddm">
+                            <li><a href="ngAbout.html">本會介紹</a></li>
+
+                            <li><a href="ourorg.html">本會架構</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="ngServices.html">服務</a></li>
+                    <li><a href="ngEvent.html">最新資訊</a></li>
+                    <li><a href="ngdownload.html">下載區</a></li>
+
+
+                    <li><a href="ngAlbum.html?orgID=org21">相片</a></li>
+                    <li><a href="links.html">鏈結</a></li>
+
+                </ul>
+            </div>
+            <!--/navbar-collapse-->
+        </div>
+    </div>
+    <!-- End Navbar -->
+</div>
+<!--=== End Header ===-->
+
+</body>
+</html>

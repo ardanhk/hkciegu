@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <!-- saved from url=(0056)http://htmlstream.com/preview/unify-v1.4/page_home1.html -->
-<html lang="en" id="ls-global"><!--<![endif]-->
+<html ng-app="orgCom">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Unify | Welcome...</title>
+    <title>HKCIEGU</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="http://htmlstream.com/preview/unify-v1.4/favicon.ico">
 
@@ -36,6 +37,7 @@
     <!-- CSS Customization -->
     <link rel="stylesheet" href="http://htmlstream.com/preview/unify-v1.4/assets/css/custom.css">
     <link rel="stylesheet" href="./index2_files/skin.css" type="text/css">
+	<script src="common.js"></script>
 
     <style>
         .header_img {
@@ -51,7 +53,7 @@
     </style>
 </head>
 
-<body>
+<body ng-controller="orgCom" class="fontNormal">
 <!--=== Style Switcher ===-->
 
 
@@ -60,66 +62,7 @@
 
 <div class="wrapper">
 <!--=== Header ===-->
-<div class="header">
-    <!-- Topbar -->
-    <div class="topbar">
-        <div class="container">
-            <!-- Topbar Navigation -->
-            <ul class="loginbar pull-right">
-                <li>
-                    <i class="fa fa-globe"></i>
-                    <a>Languages</a>
-                    <ul class="lenguages">
-                        <li class="active">
-                            <a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">English <i
-                                    class="fa fa-check"></i></a>
-                        </li>
-                        <li><a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">Spanish</a></li>
-                        <li><a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">Russian</a></li>
-                        <li><a href="http://htmlstream.com/preview/unify-v1.4/page_home1.html#">German</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-            <!-- End Topbar Navigation -->
-        </div>
-    </div>
-    <!-- End Topbar -->
-
-    <!-- Navbar -->
-    <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="fa fa-bars"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img id="logo-header" src="./images/logo_A.jpg" alt="Logo" class="header_img">
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Home -->
-                    <li><a href="./index2.html">主頁</a>
-                    </li>
-                    <li class="active"><a href="./aboutus.html">有關我們</a></li>
-                    <li><a href="#">服務</a></li>
-                    <li><a href="./pofo.html">最新資訊</a></li>
-                    <li><a href="#">聯絡我們</a></li>
-
-
-                </ul>
-            </div>
-            <!--/navbar-collapse-->
-        </div>
-    </div>
-    <!-- End Navbar -->
-</div>
+<div ng-include src="'menu.html'"></div>
 <!--=== End Header ===-->
 
 <!--=== Slider ===-->
@@ -169,60 +112,8 @@
 <!-- End Content Part -->
 
 <!--=== Footer ===-->
-<div class="footer">
-    <div class="container">
-        <div class="row">
 
-            <!--/col-md-4-->
-
-
-            <!--/col-md-4-->
-
-            <div class="col-md-12">
-                <!-- Contact Us -->
-                <div class="headline"><h2>Contact Us</h2></div>
-                <address class="md-margin-bottom-40">
-
-
-
-
-                    地址 ： 九龍油麻地上海街383號華興商業中心2字樓<br>
-                    電話： (852) 2388 6887<br>
-                    傳真： (852) 2385 5002<br>
-                    電郵： <a href="hkciegu@yahoo.com.hk" class="">hkciegu@yahoo.com.hk</a><br>
-                    <br>
-
-
-                </address>
-                <!-- End Contact Us -->
-
-                <!-- Social Links -->
-
-                <!--/col-md-4-->
-            </div>
-        </div>
-    </div>
-    <!--/footer-->
-    <!--=== End Footer ===-->
-
-    <!--=== Copyright ===-->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        2014 © 香港建造業工人總會. ALL Rights Reserved.
-
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--/copyright-->
-    <!--=== End Copyright ===-->
-</div>
-<!--/wrapper-->
+<div ng-include src="'footer.html'"></div>
 
 <!-- JS Global Compulsory -->
 <script type="text/javascript" async="" src="./index2_files/ga.js"></script>

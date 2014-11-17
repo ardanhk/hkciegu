@@ -13,7 +13,7 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "ejs": "~0.8.5",
-    "mongoose": "*",
+    "mongoose": "~3.8.8",
     "gridfs-stream": "*",
     "jpush-sdk": "*",
     "express-session": "*",
