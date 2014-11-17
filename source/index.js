@@ -56,7 +56,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 app.get('/login', function(req, res, next) {
-	res.render('login');
+	res.render('login', {message: req.flash('error')});
 });
 
 app.get('/logout', function(req, res){
