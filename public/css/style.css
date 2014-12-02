@@ -1,4 +1,4 @@
-﻿/*=============================================================
+/*=============================================================
     Authour URI: www.binarytheme.com
     License: Commons Attribution 3.0
 
@@ -254,12 +254,12 @@ font-size: 20px;
 
 /* About */
 #about {
-  font-size: @font-size-large;
+  font-size: 18px;
 }
 
 /* Service */
 #service {
-  font-size: @font-size-large;
+  font-size: 18px;
 }
 
 /* Download */
