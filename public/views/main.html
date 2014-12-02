@@ -1,0 +1,88 @@
+<section id="home" class="text-center hidden-xs">
+    <div id="slideshow">
+        <carousel interval="5000">
+            <slide ng-repeat="slide in slides" active="slide.active">
+                <img ng-src="{{slide.image}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <h2 class="back-light">{{slide.caption}}</h2>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+</section>
+<!--/.SLIDESHOW END-->
+
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="headline">
+                <h3>最新資訊</h3>
+            </div>
+            <div class="row text-center" >
+                <div class="col-md-12">
+                    <div class="row text-center pad-row">
+                        <div class="col-md-4 col-sm-4 ">
+                            <img src="" class="img-round">
+                            <h4><strong>
+
+                            </strong></h4>
+                            <p>
+
+                            </p>
+                            <a href="#" class="btn btn-primary">
+                                查看詳情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!--/.NEWS END-->
+
+            <div class="col-md-8">
+            <div class="headline">
+                <h3>我們的使命</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <img src="/img/our.jpg" />
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>凝聚香港建造業從業員</li>
+                        <li>爭取公平和合理的雇傭條件</li>
+                        <li>推動行業職業安全健康</li>
+                        <li>促進從業員與業界的溝通</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <!--/.AIMS END-->
+
+            <div class="col-md-4">
+                <div class="headline">
+                    <h3>友情推薦</h3>
+                </div>
+            </div>
+            <!--/.AIMS END-->
+            
+            <div class="col-md-12">
+            <div class="headline">
+                <h3>我們的分會</h3>
+            </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+            <div class="pad-bottom row text-center">
+                <figure class="col-xs-3 col-md-2" ng-repeat="group in groups">
+                    <img src="{{group.image}}" />
+                    <div class="caption">
+                        <h5>{{group.title}}</h5>
+                    </div>
+                </figure>
+            </div>
+            </div>
+            <!--/.GROUPS END-->
+
+    </div>
+</section>
