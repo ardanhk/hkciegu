@@ -1,6 +1,11 @@
 var ctrlModule = angular.module('orgComAdmin.controllers', []);
 
-ctrlModule.controller('LogoutCtrl', ['', function () {
-	localStorage.clearAll();
-	window.location = '/logout';
+ctrlModule.controller('ActCtrl', ['$scope, $location', function ($scope, $location) {
+	$scope.createAct = function() {
+		$location.path = "/createAct"
+	};
+}]);
+
+ctrlModule.controller('CreateActCtrl', ['$scope', function ($scope) {
+	
 }]);
