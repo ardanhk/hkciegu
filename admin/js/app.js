@@ -15,7 +15,7 @@ app.config(['$routeProvider', '$locationProvider',
 				templateUrl: '/admin/views/createAct.html',
 				controller: 'CreateActCtrl'
 			}).
-			when('/editAct/:ActivityId', {
+			when('/editAct/:id', {
 				templateUrl: '/admin/views/editAct.html',
 				controller: 'EditActCtrl'
 			}).

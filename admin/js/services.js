@@ -16,5 +16,13 @@ serviceModule.factory('ActService', function($http) {
 		return $http.post('/api/newAct', activity);
 	}
 
+	actService.editActivity = function(activity) {
+		return $http.put('/api/editAct', activity);
+	}
+
+	actService.deleteActivity = function(activity) {
+		return $http.put('/api/deleteAct/' + activity._id);
+	}
+
 	return actService;
 });

@@ -46,9 +46,9 @@
     </div>
 
     <button type="submit" class="btn btn-primary">儲存</button>
+    <a href="/admin" class="btn btn-default">返回</a>
   </form>
-  <div class="pad-top alert alert-success" role="alert" ng-show="success">儲存成功，1秒後返回主頁</div>
-  <div class="alert alert-danger" role="alert" ng-show="fail">儲存失敗: {{message}}</div>
+  <div class="margin-top alert" ng-class="{'alert-success': success, 'alert-danger': !success}" role="alert" ng-show="message">{{message}}</div>
   <div class="pad-row well">
     {{activity}}
   </div>
