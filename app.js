@@ -6,22 +6,38 @@ var express = require('express'),
     LocalStrategy = require('passport-local'),
     flash = require('connect-flash'),
     mongoose = require('mongoose'),
+    config = require('./config'),
     routes = require('./routes/index'),
     apiRoutes = require('./routes/api'),
     User = require('./models/User');
 
-// Mongoose Configuration
-mongoose.connect('mongodb://localhost/test');
+config.options.server.socketOptions = config.options.replset.socketOptions = { keepAlive: 1 };
+
+var connectWithRetry = function () {
+    return mongoose.connect(config.MONGODB_URL, config.options, function (err) {
+        if (err) {
+            console.error('Failed to connect to mongoDB, will retry in ' + config.RETRY_INTERVAL/1000.0 + ' sec(s): ', err);
+            setTimeout(connectWithRetry, config.RETRY_INTERVAL);
+        }
+    });
+}
+connectWithRetry();
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
-    console.log("Connection Established.");
+    console.log("MongoDB Connection Established.");
+});
+db.on('connected', function () {
+    console.log("MongoDB Connected.");
+});
+db.on('error', function (err) {
+    console.error("MongoDB Connection Error: " + err);
 });
 
 // Express Configuration
 var app = express();
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || config.PORT);
 
+app.enable("jsonp callback");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(session({secret: 'vantis', cookie: { maxAge: 60 * 10000 }}));
@@ -63,6 +79,7 @@ user.password = 'password';
 user.save();
 // Testing only END
 
+/*
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
@@ -76,6 +93,7 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+*/
 
 app.use('/api', apiRoutes);
 

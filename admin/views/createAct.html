@@ -1,23 +1,55 @@
-<div class="container">
-  <form role="form">
+<div ng-init="activity.canRegister=false" class="container">
+  <form role="form" ng-submit="submit()">
+
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      <label for="name">活動名稱</label>
+      <input type="text" class="form-control" name="name" ng-model="activity.name" placeholder="活動名稱" ng-required="true">
     </div>
+
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <label for="description">活動名稱</label>
+      <textarea class="form-control" name="description" ng-model="activity.description" placeholder="活動名稱" ng-required="true" />
     </div>
-    <div class="form-group">
-      <label for="exampleInputFile">File input</label>
-      <input type="file" id="exampleInputFile">
-      <p class="help-block">Example block-level help text here.</p>
-    </div>
+
     <div class="checkbox">
       <label>
-        <input type="checkbox"> Check me out
+        <input type="checkbox" ng-model="activity.canRegister"> 開放申請
       </label>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+
+    <div ng-show="activity.canRegister">
+      
+      <div class="pad-row input-group">
+        <input type="text" class="form-control" name="startDate" datepicker-popup="{{format}}" ng-model="activity.startDate" is-open="startOpened" min-date="minDate" datepicker-options="dateOptions" ng-required="activity.canRegister" current-text="今天" clear-text="清除" close-text="關閉" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+
+      <div class="pad-bottom input-group">
+        <input type="text" class="form-control" name="endDate" datepicker-popup="{{format}}" ng-model="activity.endDate" is-open="endOpened" min-date="minDate" datepicker-options="dateOptions" ng-required="activity.canRegister" current-text="今天" clear-text="清除" close-text="關閉" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="courseCode">活動編號</label>
+        <input type="text" class="form-control" name="courseCode" placeholder="活動編號" ng-model="activity.courseCode" ng-required="activity.canRegister" />
+      </div>
+
+      <div class="form-group">
+        <label for="fee">參加費用</label>
+        <input type="number" class="form-control" name="fee" placeholder="參加費用" ng-model="activity.fee" ng-required="activity.fee" />
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">儲存</button>
   </form>
+  <div class="pad-top alert alert-success" role="alert" ng-show="success">儲存成功，1秒後返回主頁</div>
+  <div class="alert alert-danger" role="alert" ng-show="fail">儲存失敗: {{message}}</div>
+  <div class="pad-row well">
+    {{activity}}
+  </div>
 </div>

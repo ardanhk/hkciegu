@@ -6,7 +6,7 @@ app.config(['$routeProvider', '$locationProvider',
 		$routeProvider.
 			when('/admin', {
 				templateUrl: '/admin/views/main.html',
-				controller: 'ActCtrl'
+				controller: 'MainCtrl'
 			}).
 			when('/application', {
 				templateUrl: '/admin/views/application.html'
@@ -14,6 +14,10 @@ app.config(['$routeProvider', '$locationProvider',
 			when('/createAct', {
 				templateUrl: '/admin/views/createAct.html',
 				controller: 'CreateActCtrl'
+			}).
+			when('/editAct/:ActivityId', {
+				templateUrl: '/admin/views/editAct.html',
+				controller: 'EditActCtrl'
 			}).
 			otherwise({
 				redirectTo: '/admin'

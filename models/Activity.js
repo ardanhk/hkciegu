@@ -2,15 +2,15 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var Activity = new Schema({
-	activityName: {type: String, required: true},
-	activityDescription: {type: String, require: true},
+	name: {type: String, required: true},
+	description: {type: String, require: true},
 	canRegister: {type: Boolean, require: true},
 	createAt: {type:Date, default: Date.now, require: true},
 	updateAt: Date,
 	activityPhotos: Array,
 	regStartDate: Date,
 	regEndDate: Date,
-	displayCourseCode: String,
+	courseCode: String,
 	fee: Number
 });
 

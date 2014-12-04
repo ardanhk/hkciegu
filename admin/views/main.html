@@ -1,6 +1,21 @@
-<div class="container">
-	<button type="button" class="btn btn-primary" ng-click="createAct()">新增活動</button>
+<div class="container" data-ng-init="getActs()">
+	<button type="button" class="margin-bottom btn btn-primary" ng-click="createAct()">新增活動</button>
 	<table class="table table-hover">
-
+		<thead>
+			<tr>
+				<th width="60%">活動名稱</th>
+				<th width="20%">建立日期</th>
+				<th width="10%">修改</th>
+				<th width="10%">刪除</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="activity in activities">
+				<td>{{activity.name}}</td>
+				<td>{{activity.createAt | date}}</td>
+				<td><button type="button" class="btn btn-info" ng-click="editAct(activity)">修改活動</button></td>
+				<td><button type="button" class="btn btn-danger" ng-click="deleteAct(activity)">刪除活動</button></td>
+			</tr>
+		</tbody>
 	</table>
 </div>

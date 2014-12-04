@@ -5,3 +5,34 @@
 section {
     padding-top:50px;
 }
+
+.pad-row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.pad-top {
+	padding-top: 20px;
+}
+
+.pad-bottom {
+	padding-bottom: 20px;
+}
+
+.margin-row {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.margin-top {
+	margin-top: 20px;
+}
+
+.margin-bottom {
+	margin-bottom: 20px;
+}
+
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+	margin-left: 0px;
+	margin-right: 0px;
+}
