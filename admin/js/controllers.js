@@ -30,6 +30,7 @@ ctrlModule.controller('MainCtrl', ['$scope', '$location', '$timeout', 'ActServic
 
 				if ($scope.success) {
 					$scope.message = '活動已經成功刪除';
+					$scope.getActs();
 				} else {
 					$scope.message = data.message;
 				}

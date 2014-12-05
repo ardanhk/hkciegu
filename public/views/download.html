@@ -11,19 +11,9 @@
 					相關表格
 				</div>
 				<table class="table">
-					<tr>
+					<tr ng-repeat="download in organization.downloads">
 						<td>
-							<a href="#">會員申請表格</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#">修改會員資料申請表格</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#">報讀課程表格</a>
+							<a href="{{download.link}}">{{download.name}}</a>
 						</td>
 					</tr>
 				</table>

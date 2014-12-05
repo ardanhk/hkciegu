@@ -1,7 +1,8 @@
-<section id="home" class="text-center hidden-xs">
+<section id="home" class="text-center hidden-xs" ng-init="latestActs()">
+
     <div id="slideshow">
         <carousel interval="5000">
-            <slide ng-repeat="slide in slides" active="slide.active">
+            <slide ng-repeat="slide in organization.slides" active="slide.active">
                 <img data-ng-src="{{slide.image}}" style="margin:auto;">
                 <div class="carousel-caption">
                     <h2 class="back-light">{{slide.caption}}</h2>
@@ -9,6 +10,7 @@
             </slide>
         </carousel>
     </div>
+    
 </section>
 <!--/.SLIDESHOW END-->
 
@@ -16,27 +18,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            <div class="headline">
-                <h3>最新資訊</h3>
-            </div>
-            <div class="row text-center" >
-                <div class="col-md-12">
-                    <div class="row text-center pad-row">
-                        <div class="col-md-4 col-sm-4 ">
-                            <img src="" class="img-round">
-                            <h4><strong>
+                <div class="headline">
+                    <h3>最新資訊</h3>
+                </div>
 
-                            </strong></h4>
-                            <p>
-
-                            </p>
-                            <a href="#" class="btn btn-primary">
-                                查看詳情
-                            </a>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4" ng-repeat="activity in activities">
+                        <div class="thumbnail">
+                        <img src="/img/temp.jpg" class="img-round">
+                            <div class="caption text-center">
+                                <h3>{{activity.name}}</h3>
+                                <p>{{activity.description}}</p>
+                                <p><a href="/new/{{activity._id}}" class="btn btn-success" role="button">查看詳情</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         <!--/.NEWS END-->
 
@@ -46,15 +43,10 @@
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-                    <img src="/img/our.jpg" />
+                    <img data-ng-src="{{organization.mission.image}}" />
                 </div>
-                <div class="col-md-4">
-                    <ul>
-                        <li>凝聚香港建造業從業員</li>
-                        <li>爭取公平和合理的雇傭條件</li>
-                        <li>推動行業職業安全健康</li>
-                        <li>促進從業員與業界的溝通</li>
-                    </ul>
+                <div class="col-md-7">
+                    {{organization.mission.description}}
                 </div>
             </div>
             </div>

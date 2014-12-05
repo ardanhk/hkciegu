@@ -1,11 +1,47 @@
 var express = require('express'),
 	router = express.Router(),
 	User = require('../models/User'),
-	Activity = require('../models/Activity');
+	Activity = require('../models/Activity'),
+	Organization = require('../models/Organization');
 
+// getOrgs
+router.route('/getOrgs').get(function (req, res) {
+	console.log('Request: getOrgs');
+	Organization.find({}, function(err, orgs) {
+		res.json(orgs);
+	});
+});
+
+// findOrg
+router.route('/findOrg').get(function (req, res) {
+	console.log('Request: findOrg');
+	Organization.find({}).sort('-order').limit(1).exec(function (err, org) {
+		if (err) {
+			console.error('Error occur: ' + err);
+			res.json({success: false, message: err.message});
+		} else {
+			res.json({success: true, organization: org[0]});
+		}
+	});
+});
+
+// findOrg/_id
+router.route('/findOrg/:_id').get(function (req, res) {
+	console.log('Request: findOrg/' + req.param('_id'));
+	Organization.findOne({_id: req.param('_id')}, function (err, org) {
+		if (err) {
+			console.error('Error occur: ' + err);
+			res.json({success: false, message: err.message});
+		} else {
+			res.json({success: true, organization: org});
+		}
+	});
+});
+
+// getActs
 router.route('/getActs').get(function (req, res) {
 	console.log('Request: getActs');
-	Activity.find({isDeleted: false}, '_id name createAt', function (err, docs) {
+	Activity.find({isDeleted: false}, '_id name description createAt', function (err, docs) {
 		if (err) {
 			console.error('Error occur: ' + err);
 			res.json({success: false, message: err.message});
@@ -15,6 +51,20 @@ router.route('/getActs').get(function (req, res) {
 	});	
 });
 
+// latestActs
+router.route('/latestActs').get(function (req, res) {
+	console.log('Request: latestActs');
+	Activity.find({isDeleted: false}, '_id name description createAt').sort('-createAt').limit(3).exec(function (err, docs) {
+		if (err) {
+			console.error('Error occur: ' + err);
+			res.json({success: false, message: err.message});
+		} else {
+			res.json({success: true, activities: docs});
+		}
+	});
+});
+
+// findAct/_id
 router.route('/findAct/:_id').get(function (req, res) {
 	console.log('Request: findAct/' + req.param('_id'));
 	Activity.findOne({_id: req.param('_id')}, function (err, doc) {
@@ -27,6 +77,7 @@ router.route('/findAct/:_id').get(function (req, res) {
 	});
 });
 
+// newAct
 router.route('/newAct').post(function (req, res) {
 	var activity = new Activity();
 	activity.name = req.param('name');
@@ -48,15 +99,14 @@ router.route('/newAct').post(function (req, res) {
 	});
 });
 
+// editAct
 router.route('/editAct').put(function (req, res) {
 	console.log('Request: editAct/' + req.param('_id'));
 	Activity.findOne({_id: req.param('_id')}, function (err, doc) {
 		if (err) {
-			console.log('testing err1');
 			console.error('Error occur: ' + err)
 			res.json({success: false, message: err.message});
 		} else {
-			console.log('testing nerr1');
 			doc.name = req.param('name');
 			doc.description = req.param('description');
 			doc.canRegister = req.param('canRegister');
@@ -71,14 +121,11 @@ router.route('/editAct').put(function (req, res) {
 				doc.courseCode = undefined;
 				doc.fee = undefined;
 			}
-			console.log('testing save1');
 			doc.save(function (err) {
 				if (err) {
-					console.log('testing save err1');
 					console.log('Error occur:' + err);
 					res.json({success: false, message: err.message});
 				} else {
-					console.log('testing save nerr1');
 					res.json({success: true});
 				}
 			});
@@ -86,8 +133,25 @@ router.route('/editAct').put(function (req, res) {
 	});
 });
 
+// deletectAct/_id
 router.route('/deleteAct/:_id').put(function (req, res) {
 	console.log('Request: deleteAct/' + req.param('_id'));
+	Activity.findOne({_id: req.param('_id')}, function (err, doc) {
+		if (err) {
+			console.error('Error occur: ' + err)
+			res.json({success: false, message: err.message});
+		} else {
+			doc.isDeleted = true;
+			doc.save(function (err) {
+				if (err) {
+					console.log('Error occur:' + err);
+					res.json({success: false, message: err.message});
+				} else {
+					res.json({success: true});
+				}
+			});
+		}
+	});
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 var serviceModule = angular.module('orgComAdmin.services', []);
 
-serviceModule.factory('ActService', function($http) {
+serviceModule.factory('ActService', function ($http) {
 	
 	var actService = {};
 
@@ -25,4 +25,13 @@ serviceModule.factory('ActService', function($http) {
 	}
 
 	return actService;
+});
+
+serviceModule.factory('AppService', function ($http) {
+
+	var appService = {};
+
+	
+
+	return appService;
 });

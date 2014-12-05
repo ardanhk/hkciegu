@@ -1,0 +1,25 @@
+<section id="home" ng-init="findAct(id)">
+<div class="container">
+	<div class="pad-row">
+		<div class="headline">
+			<h3>{{activity.name}}</h3>
+		</div>
+		<article>
+			<p>{{activity.description}}</p>
+			
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img data-src="" alt="">
+					</a>
+				</div>
+			</div>
+
+			<div ng-show="activity.canRegister">
+				<button type="button" class="btn btn-success">網上報名</button>
+			</div>
+
+		</article>
+	</div>
+</div>
+</section>

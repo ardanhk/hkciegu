@@ -15,6 +15,11 @@
 
 @import "bootstrap.less";
 
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .navbar-brand {
@@ -35,7 +40,7 @@
   margin: 0 0 -2px 0;
   padding-bottom: 5px;
   display: inline-block;
-  border-bottom: 2px solid #72c02c;
+  border-bottom: 2px solid @brand-success;
 }
 
 body {
@@ -270,3 +275,39 @@ font-size: 20px;
   margin: 0 auto;
 }
 
+/* New */
+.thumbnail {
+  -o-transition:.3s;
+  -ms-transition:.3s;
+  -moz-transition:.3s;
+  -webkit-transition:.3s;
+  /* ...and now for the proper property */
+  transition:.3s;
+}
+
+.thumbnail:hover {
+  background-color: @brand-success;
+
+  -o-transition:.3s;
+  -ms-transition:.3s;
+  -moz-transition:.3s;
+  -webkit-transition:.3s;
+  /* ...and now for the proper property */
+  transition:.3s;
+}
+
+.thumbnail:hover .btn-success {
+  background-color: white;
+  color: @brand-primary;
+
+  -o-transition:.3s;
+  -ms-transition:.3s;
+  -moz-transition:.3s;
+  -webkit-transition:.3s;
+  /* ...and now for the proper property */
+  transition:.3s;
+}
+
+.thumbnail:hover .btn-success:hover {
+  background-color: #DFD;
+}

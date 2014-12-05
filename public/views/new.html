@@ -1,0 +1,23 @@
+<section id="home" ng-init="getActs()">
+<div class="container">
+	<div class="pad-row">
+		<div class="headline">
+			<h3>最新資訊</h3>
+		</div>
+		<article id="new" class="pad-row row">
+			<div class="row text-center">
+				<div class="col-sm-6 col-md-4" ng-repeat="activity in activities">
+					<div class="thumbnail">
+					<img src="/img/temp.jpg" class="img-round">
+						<div class="caption">
+							<h3>{{activity.name}}</h3>
+							<p>{{activity.description}}</p>
+							<p><a href="/new/{{activity._id}}" class="btn btn-success" role="button">查看詳情</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</div>
+</div>
+</section>

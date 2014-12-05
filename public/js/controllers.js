@@ -1,12 +1,7 @@
 var ctrlModule = angular.module('orgCom.controllers', []);
 
-ctrlModule.controller('mainCtrl', ['$scope', function($scope) {
-	$scope.slides = [
-		{image: '/img/slideshow/1.jpg', caption: '爭取權益，團結友愛！'},
-		{image: '/img/slideshow/2.jpg', caption: '爭取權益，團結友愛！'},
-		{image: '/img/slideshow/3.jpg', caption: '爭取權益，團結友愛！'}
-	];
-
+ctrlModule.controller('mainCtrl', ['$scope', 'ActService', function ($scope, ActService) {
+	
 	$scope.groups = [
 		{image: '/img/group/org2/Logo.png', title: '坭水'},
 		{image: '/img/group/org3/Logo.png', title: '木匠'},
@@ -21,4 +16,69 @@ ctrlModule.controller('mainCtrl', ['$scope', function($scope) {
 	];
 
 	$scope.activities = [];
+
+	$scope.latestActs = function() {
+		ActService.latestActivities().
+			success(function (data, status, headers, config) {
+				$scope.activities = data.activities;
+			}).
+			error(function (data, status, headers, config) {
+				console.error(data);
+			});
+	};
+
+}]);
+
+ctrlModule.controller('newCtrl', ['$scope', 'ActService', function ($scope, ActService) {
+	$scope.activities = [];
+
+	$scope.getActs = function() {
+		ActService.getActivities().
+			success(function (data, status, headers, config) {
+				$scope.activities = data.activities;
+			}).
+			error(function (data, status, headers, config) {
+				console.error(data);
+			});
+	};
+}]);
+
+ctrlModule.controller('newDetailCtrl', ['$scope', '$routeParams', 'ActService', function ($scope, $routeParams, ActService) {
+	$scope.activityID = $routeParams.id;
+
+	$scope.findAct = function() {
+		ActService.findActivity($scope.activityID).
+			success(function (data, status, headers, config) {
+				if (data.success)
+					$scope.activity = data.activity;
+				else {
+					$scope.fail = true;
+					$scope.message = data.message;
+				}
+			}).
+			error(function (data, status, headers, config) {
+				$scope.fail = true;
+				$scope.message = '無法連線到伺服器';
+			});
+	}
+}]);
+
+ctrlModule.controller('applicationCtrl', ['$scope', '$routeParams', 'ActService', 'AppService', function ($scope, $routeParams, ActService, AppService) {
+	$scope.activityID = $routeParams.id;
+
+	$scope.findAct = function() {
+		ActService.findActivity($scope.activityID).
+			success(function (data, status, headers, config) {
+				if (data.success)
+					$scope.activity = data.activity;
+				else {
+					$scope.fail = true;
+					$scope.message = data.message;
+				}
+			}).
+			error(function (data, status, headers, config) {
+				$scope.fail = true;
+				$scope.message = '無法連線到伺服器';
+			});
+	}
 }]);

@@ -11,25 +11,9 @@
 					友好鏈結
 				</div>
 				<table class="table">
-					<tr>
-						<td><a href="http://www.ftu.org.hk">香港工會聯合會</a></td>
-						<td><a href="http://www.ftu.org.hk">http://www.ftu.org.hk</a></td>
-					</tr>
-					<tr>
-						<td><a href="http://www.hkftu.com.hk">工聯優惠中心</a></td>
-						<td><a href="http://www.hkftu.com.hk">http://www.hkftu.com.hk</a></td>
-					</tr>
-					<tr>
-						<td><a href="http://www.ftuclinics.org.hk/tc/about_us/background.html">工人醫療所</a></td>
-						<td><a href="http://www.ftuclinics.org.hk/tc/about_us/background.html">http://www.ftuclinics.org.hk/tc/about_us/background.html</a></td>
-					</tr>
-					<tr>
-						<td><a href="http://www.hksu1946.hk/main/index.php">香港海員工會</a></td>
-						<td><a href="http://www.hksu1946.hk/main/index.php">http://www.hksu1946.hk/main/index.php</a></td>
-					</tr>
-					<tr>
-						<td><a href="http://www.hkcic.org/chi/main.aspx">建造業議會</a></td>
-						<td><a href="http://www.hkcic.org/chi/main.aspx">http://www.hkcic.org/chi/main.aspx</a></td>
+					<tr ng-repeat="link in organization.links">
+						<td><a href="{{link.url}}">{{link.name}}</a></td>
+						<td><a href="{{link.url}}">{{link.url}}</a></td>
 					</tr>
 				</table>
 			</div>
