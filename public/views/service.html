@@ -9,7 +9,7 @@
 				<img data-ng-src="{{organization.service.image}}" />
 			</div>
 			<div class="col-md-7">
-				{{organization.service.description}}
+				<p ng-bind-html="organization.service.description"></p>
 			</div>
 		</article>
 	</div>

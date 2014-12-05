@@ -1,4 +1,4 @@
-var app = angular.module('orgCom', ['ui.bootstrap', 'ngRoute', 'orgCom.controllers', 'orgCom.services', 'orgCom.directives']);
+var app = angular.module('orgCom', ['ngSanitize', 'ngRoute', 'ui.bootstrap', 'orgCom.controllers', 'orgCom.services', 'orgCom.directives']);
 
 app.run(['$rootScope', 'OrgService', function ($rootScope, OrgService) {
 	OrgService.findOrg().
