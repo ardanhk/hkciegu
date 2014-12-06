@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	bcrypt = require('bcrypt'), // Blowfish key cipher
+	//bcrypt = require('bcrypt'), // Blowfish key cipher
 	SALT_WORK_FACTOR = 10;
 
 var User = new Schema({
@@ -10,6 +10,7 @@ var User = new Schema({
 	createAt: {type: Date, default: Date.now}
 });
 
+/*
 // Hash the password
 User.pre('save', function (next) {
 	var user = this;
@@ -28,13 +29,23 @@ User.pre('save', function (next) {
 		});
 	});
 });
+*/
+
 
 User.methods.comparePassword = function(candidatePassword, callback) {
+	/*
 	bcrypt.compare(candidatePassword, this.password, function (error, isMatch) {
 		if (error)
 			return callback(error);
 		callback(null, isMatch);
 	});
+	*/
+
+	
+	if (this.password == candidatePassword)
+		callback(null, true);
+	else
+		callback(null, false);
 }
 
 module.exports = mongoose.model('User', User);

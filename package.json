@@ -12,7 +12,7 @@
     "express-session": "*",
     "passport": "*",
     "passport-local": "*",
-    "bcrypt": "*",
+//    "bcrypt": "*",
     "connect-flash": "*"
   }
 }
