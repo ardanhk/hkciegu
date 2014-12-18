@@ -1,6 +1,7 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
+    fs = require('fs'),
     session = require('express-session'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
@@ -9,6 +10,7 @@ var express = require('express'),
     config = require('./config'),
     routes = require('./routes/index'),
     apiRoutes = require('./routes/api'),
+    uploadapiRoutes = require('./routes/uploadapi.js'),
     User = require('./models/User'),
     Organization = require('./models/Organization');
 
@@ -134,18 +136,18 @@ app.all('/admin/*', function(req, res, next) {
     if (!req.user) {
         return res.redirect('/login.html');
     }
+    //console.log("app.all" + req.originalUrl);
+    //res.redirect(req.originalUrl);
     next();
+
 });
+
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/');
-});
-
-app.get('*', function(req, res) {
-  res.redirect('/#' + req.originalUrl);
 });
 
 app.post('/login', passport.authenticate('local', { successRedirect: '/admin', failureRedirect: '/login.html', failureFlash: true }));

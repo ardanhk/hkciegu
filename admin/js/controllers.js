@@ -1,5 +1,22 @@
 var ctrlModule = angular.module('orgComAdmin.controllers', []);
 
+ctrlModule.controller('UploaderCtrl', ['$scope', '$location', '$timeout', 'ActService', function ($scope, $location, $timeout, ActService) {
+	$scope.activities = {};
+	$scope.success = true;
+	$scope.message = '';
+
+	$scope.getActs = function() {
+		$scope.activities = ActService.getActivities().
+			success(function (data, status, headers, config) {
+				$scope.activities = data.activities;
+			}).
+			error(function (data, status, headers, config) {
+				console.error(data);
+			});
+	}
+
+}]);
+
 ctrlModule.controller('MainCtrl', ['$scope', '$location', '$timeout', 'ActService', function ($scope, $location, $timeout, ActService) {
 	$scope.activities = {};
 	$scope.success = true;

@@ -19,6 +19,10 @@ app.config(['$routeProvider', '$locationProvider',
 				templateUrl: '/admin/views/editAct.html',
 				controller: 'EditActCtrl'
 			}).
+			when('/uploader', {
+				templateUrl: '/admin/views//uploader.html',
+				controller: 'UploaderCtrl'
+			}).
 			otherwise({
 				redirectTo: '/admin'
 			});
